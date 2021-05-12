@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Filter</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body{
+			background:linear-gradient(45deg, #9addfd,#0a1215);
+			font-family: sans-serif;
+
+		}
+		.filter-menu{
+			width: 85%;
+			margin: 50px auto;
+
+		}
+		.filter-menu h1{
+			text-align:center;
+			text-transform: uppercase;
+			color: #fff;
+			font-family: monospace;
+			font-size: 4rem;
+		}
+		.ul{
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			border-bottom: 3px solid #fff;
+			padding-bottom: 10px;
+			margin-bottom: 10px;
+		}
+		.ul li{
+			list-style: none;
+			padding: 9px 25px;
+			background-color: black;
+			cursor: pointer;
+			margin: 7px 10px;
+			font-size: 1.1rem;
+			color: #fff;
+			font-weight: bolder;
+			border-radius: 15px;
+			
+		}
+		.ul li:hover{
+			background-color: #9adc9a;
+			color: white;
+
+		}
+		.ul li.current{
+			background: #9adc9a;
+
+		}
+		.ul li.current:hover{
+			background: #9adccc;
+
+		}
+		.items{
+			width: 100%;
+			padding: 0px 10px;
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+		.items img{
+			width: 250px;
+			height: 220px;
+			margin: 10px;
+			border-radius: 20px;
+		}
+		.items img:hover{
+			filter: brightness(0.8);
+		}
+		@media(max-width: 768px){
+			.items{
+				width: 100%;
+
+			}
+			ul{
+				flex-direction: column;
+				text-align: center;
+			}
+		}
+	</style>
+</head>
+<body>
+	<section class="filter-menu">
+	<h1>Filter-Menu</h1>	
+
+	<ul class="ul">
+		<li class="current">All Menu</li>
+		<li>Happy</li>
+		<li>Sad</li>
+		<li>coding</li>
+		<li>Laptop</li>
+	</ul>
+	<div class="items">
+
+
+		<img src="img2.png" data-filter="happy">
+		<img src="img2.png" data-filter="happy">
+		<img src="img2.png" data-filter="happy">
+		<img src="img2.png" data-filter="happy">
+		<img src="img2.png" data-filter="happy">
+		<img src="img2.png" data-filter="happy">
+		<img src="img2.png" data-filter="happy">
+		<img src="img2.png" data-filter="happy">
+
+		<img src="img1.jpeg" data-filter="sad">
+		<img src="img1.jpeg" data-filter="sad">
+		<img src="img1.jpeg" data-filter="sad">
+		<img src="img1.jpeg" data-filter="sad">
+		<img src="img1.jpeg" data-filter="sad">
+		<img src="img1.jpeg" data-filter="sad">
+		<img src="img1.jpeg" data-filter="sad">
+		<img src="img1.jpeg" data-filter="sad">
+
+		<img src="img3.jpg" data-filter="laptop">
+		<img src="img3.jpg" data-filter="laptop">
+		<img src="img3.jpg" data-filter="laptop">
+		<img src="img3.jpg" data-filter="laptop">
+		<img src="img3.jpg" data-filter="laptop">
+		<img src="img3.jpg" data-filter="laptop">
+		<img src="img3.jpg" data-filter="laptop">
+		<img src="img3.jpg" data-filter="laptop">
+
+		<img src="img4.jpg" data-filter="coding">
+		<img src="img4.jpg" data-filter="coding">
+		<img src="img4.jpg" data-filter="coding">
+		<img src="img4.jpg" data-filter="coding">
+		<img src="img4.jpg" data-filter="coding">
+		<img src="img4.jpg" data-filter="coding">
+		<img src="img4.jpg" data-filter="coding">
+		<img src="img4.jpg" data-filter="coding">
+
+		
+
+		
+
+	</div>
+	</section>
+
+<script type="text/javascript">
+	
+	const liproduct=document.querySelectorAll('.ul li');
+	const img=document.querySelectorAll('.items img');
+	liproduct.forEach(li =>{
+		li.onclick= function(){
+			liproduct.forEach(li =>{
+				li.className = "";
+			})
+
+			li.className="current";
+			const value= li.textContent;
+			img.forEach(img =>{
+				img.style.display="none";
+				if(img.getAttribute('data-filter')== value.toLowerCase() || value=="All Menu"){
+					img.style.display="block"
+				}
+
+			})
+		}
+	})
+
+</script>
+
+
+
+</body>
+</html>
